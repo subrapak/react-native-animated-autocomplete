@@ -1,5 +1,13 @@
-import React, { FunctionComponent, useState } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import React, { createRef, FunctionComponent, useState } from 'react';
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TextInput,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {
   State,
   TapGestureHandler,
@@ -8,13 +16,30 @@ import {
 import Animated, { Easing, Value } from 'react-native-reanimated';
 import { AnimatedModal } from './AnimatedModal';
 
-export const AnimatedAutocomplete: FunctionComponent = () => {
+type Props = {
+  mainInputViewStyle?: ViewStyle;
+  mainInputTextStyle?: TextStyle;
+  data: string[];
+  defaultText?: string;
+  closeIcon?: JSX.Element;
+  searchIcon?: JSX.Element;
+};
+
+export const AnimatedAutocomplete: FunctionComponent<Props> = ({
+  mainInputViewStyle,
+  mainInputTextStyle,
+  data,
+  defaultText,
+  closeIcon,
+  searchIcon,
+}: Props) => {
   const { height } = Dimensions.get('window');
 
   const modalHeight = new Value<number>(0);
   const modalTranslateY = new Value<number>(height);
   const mainTextOpacity = new Value<number>(1);
-  const [mainText, setMainText] = useState<string>('');
+  const [mainText, setMainText] = useState<string>(defaultText ?? '');
+  const searchBarRef = createRef<TextInput>();
 
   const handleTapStateChange = (event: TapGestureHandlerGestureEvent) => {
     if (event.nativeEvent.state === State.BEGAN) {
@@ -34,7 +59,7 @@ export const AnimatedAutocomplete: FunctionComponent = () => {
       toValue: 0,
       duration: 300,
       easing: Easing.sin,
-    }).start();
+    }).start(() => searchBarRef.current && searchBarRef.current.focus());
     Animated.timing(modalHeight, {
       toValue: height,
       duration: 300,
@@ -49,19 +74,24 @@ export const AnimatedAutocomplete: FunctionComponent = () => {
         numberOfTaps={1}
       >
         <Animated.View
-          style={[styles.animatedViewStyle, { opacity: mainTextOpacity }]}
+          style={[
+            styles.animatedViewStyle,
+            mainInputViewStyle,
+            { opacity: mainTextOpacity },
+          ]}
         >
-          <Text style={styles.mainText}>{mainText}</Text>
+          <Text style={[styles.mainText, mainInputTextStyle]}>{mainText}</Text>
         </Animated.View>
       </TapGestureHandler>
       <AnimatedModal
         animatedHeight={modalHeight}
         translateY={modalTranslateY}
-        datalist={Array.from(Array(50).keys()).map(
-          (item: number) => `Val: ${item}`
-        )}
+        datalist={data}
         autocompleteText={mainText}
         setAutocompleteText={setMainText}
+        closeIcon={closeIcon}
+        searchIcon={searchIcon}
+        searchRef={searchBarRef}
       />
     </View>
   );
@@ -70,7 +100,6 @@ export const AnimatedAutocomplete: FunctionComponent = () => {
 const styles = StyleSheet.create({
   flexOne: {
     flex: 1,
-    // backgroundColor: 'red',
   },
   mainText: {
     fontSize: 25,
@@ -85,11 +114,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 10,
     width: 200,
-    height: 45,
+    height: 50,
   },
   mainViewStyle: {
     flex: 1,
-    // backgroundColor: 'orange',
     justifyContent: 'center',
     alignItems: 'center',
   },

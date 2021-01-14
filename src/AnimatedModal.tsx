@@ -1,4 +1,10 @@
-import React, { Dispatch, FunctionComponent, useEffect, useState } from 'react';
+import React, {
+  Dispatch,
+  FunctionComponent,
+  RefObject,
+  useEffect,
+  useState,
+} from 'react';
 import {
   Dimensions,
   FlatList,
@@ -20,6 +26,9 @@ type Props = {
   datalist: string[];
   autocompleteText: string;
   setAutocompleteText: Dispatch<React.SetStateAction<string>>;
+  closeIcon?: JSX.Element;
+  searchIcon?: JSX.Element;
+  searchRef: RefObject<TextInput>;
 };
 
 export const AnimatedModal: FunctionComponent<Props> = ({
@@ -28,6 +37,9 @@ export const AnimatedModal: FunctionComponent<Props> = ({
   datalist,
   autocompleteText,
   setAutocompleteText,
+  closeIcon,
+  searchIcon,
+  searchRef,
 }: Props) => {
   const listMaxHeight = new Value<number>(height * 0.8);
 
@@ -97,6 +109,7 @@ export const AnimatedModal: FunctionComponent<Props> = ({
       ? setFilterData(originalData.filter((item) => item.includes(text)))
       : setFilterData(originalData);
   };
+
   return (
     <Animated.View
       style={{
@@ -107,21 +120,26 @@ export const AnimatedModal: FunctionComponent<Props> = ({
     >
       <View style={styles.mainContent}>
         <View style={styles.searchBar}>
-          <Image
-            source={require('./assets/search-outline.jpg')}
-            style={styles.searchIcon}
-          />
+          {searchIcon ?? (
+            <Image
+              source={require('./assets/search-outline.jpg')}
+              style={styles.searchIcon}
+            />
+          )}
           <TextInput
             style={styles.textInput}
             value={searchBarText}
             onChangeText={handleChangeSearchBarText}
             autoCorrect={false}
+            ref={searchRef}
           />
           <TouchableOpacity onPress={() => closeModal()}>
-            <Image
-              source={require('./assets/close-outline.jpg')}
-              style={styles.closeIcon}
-            />
+            {closeIcon ?? (
+              <Image
+                source={require('./assets/close-outline.jpg')}
+                style={styles.closeIcon}
+              />
+            )}
           </TouchableOpacity>
         </View>
         <Animated.View style={[styles.animatedView, { height: listMaxHeight }]}>
@@ -129,6 +147,7 @@ export const AnimatedModal: FunctionComponent<Props> = ({
             data={filterData}
             renderItem={renderItem}
             keyExtractor={(item: string) => item}
+            keyboardShouldPersistTaps={'always'}
           />
         </Animated.View>
       </View>
@@ -138,10 +157,9 @@ export const AnimatedModal: FunctionComponent<Props> = ({
 
 const styles = StyleSheet.create({
   searchBar: {
-    // height: '5%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     borderRadius: 10,
     shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',

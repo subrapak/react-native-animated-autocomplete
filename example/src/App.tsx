@@ -10,6 +10,7 @@ export default function App() {
         data={Array.from(Array(50).keys()).map(
           (item: number) => `Custom ${item}`
         )}
+        defaultText="Default Text"
       />
     </View>
   );

@@ -2,6 +2,8 @@
 
 A customisable animated modal based autocomplete
 
+![A GIF showing example usage](example_usage.gif)
+
 ## Installation
 
 If you use npm:

@@ -4,18 +4,38 @@ A customisable animated modal based autocomplete
 
 ## Installation
 
+If you use npm:
+
 ```sh
 npm install react-native-animated-autocomplete
+
+```
+
+If you use yarn:
+
+```
+yarn add react-native-animated-autocomplete
 ```
 
 ## Usage
 
 ```js
-import AnimatedAutocomplete from "react-native-animated-autocomplete";
+import * as React from 'react';
 
-// ...
+import { View } from 'react-native';
+import AnimatedAutocomplete from 'react-native-animated-autocomplete';
 
-const result = await AnimatedAutocomplete.multiply(3, 7);
+export default function App() {
+  return (
+    <View>
+      <AnimatedAutocomplete
+        data={Array.from(Array(50).keys()).map(
+          (item: number) => `Custom ${item}`
+        )}
+      />
+    </View>
+  );
+}
 ```
 
 ## Contributing

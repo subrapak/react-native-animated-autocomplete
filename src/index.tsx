@@ -1,2 +1,2 @@
-import { AnimatedAutocomplete } from 'src/AnimatedAutocomplete';
+import { AnimatedAutocomplete } from './AnimatedAutocomplete';
 export default AnimatedAutocomplete;

@@ -2,6 +2,7 @@ import React, { Dispatch, FunctionComponent, useEffect, useState } from 'react';
 import {
   Dimensions,
   FlatList,
+  Image,
   Keyboard,
   StyleSheet,
   Text,
@@ -106,12 +107,22 @@ export const AnimatedModal: FunctionComponent<Props> = ({
     >
       <View style={styles.mainContent}>
         <View style={styles.searchBar}>
+          <Image
+            source={require('./assets/search-outline.jpg')}
+            style={styles.searchIcon}
+          />
           <TextInput
             style={styles.textInput}
             value={searchBarText}
             onChangeText={handleChangeSearchBarText}
             autoCorrect={false}
           />
+          <TouchableOpacity onPress={() => closeModal()}>
+            <Image
+              source={require('./assets/close-outline.jpg')}
+              style={styles.closeIcon}
+            />
+          </TouchableOpacity>
         </View>
         <Animated.View style={[styles.animatedView, { height: listMaxHeight }]}>
           <FlatList
@@ -130,7 +141,7 @@ const styles = StyleSheet.create({
     // height: '5%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     borderRadius: 10,
     shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',
@@ -138,6 +149,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     backgroundColor: 'white',
     padding: 10,
+  },
+  searchIcon: {
+    height: 30,
+    width: 30,
+  },
+  closeIcon: {
+    height: 30,
+    width: 30,
   },
   renderText: { fontSize: 18, color: 'grey' },
   animatedView: {
@@ -156,7 +175,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   textInput: {
-    width: 350,
+    width: '80%',
     height: '100%',
     backgroundColor: 'white',
     borderColor: 'white',

@@ -1,7 +1,7 @@
 import { AnimatedModal } from '../AnimatedModal';
 import { render } from '@testing-library/react-native';
 import { Value } from 'react-native-reanimated';
-import React, { createRef, useState } from 'react';
+import React, { createRef } from 'react';
 import type { TextInput } from 'react-native';
 
 const mockModalHeight = new Value<number>(0);
@@ -11,6 +11,11 @@ const mockSearchBarRef = createRef<TextInput>();
 jest.mock('react-native-reanimated', () =>
   require('react-native-reanimated/mock')
 );
+
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
 describe('Testing the Animated Modal component', () => {
   it('should render the animated modal component properly', () => {
     const animatedModal = render(

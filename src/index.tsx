@@ -1,5 +1,2 @@
-export default {
-  multiply(a: number, b: number) {
-    return Promise.resolve(a * b);
-  },
-};
+import { AnimatedAutocomplete } from 'src/AnimatedAutocomplete';
+export default AnimatedAutocomplete;

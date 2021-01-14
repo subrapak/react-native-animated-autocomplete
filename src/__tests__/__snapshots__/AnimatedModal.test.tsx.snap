@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the Animated Modal component should render the animated modal component properly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "white",
+      "borderRadius": 25,
+      "display": "flex",
+      "height": AnimatedValue {
+        " __value": 0,
+      },
+      "justifyContent": "flex-start",
+      "marginHorizontal": "auto",
+      "paddingVertical": 50,
+      "position": "absolute",
+      "top": 0,
+      "transform": Array [
+        Object {
+          "translateY": AnimatedValue {
+            " __value": 848,
+          },
+        },
+      ],
+      "width": 750,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": "100%",
+        "padding": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "borderRadius": 10,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+          "padding": 10,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 2,
+          },
+          "shadowOpacity": 0.5,
+          "shadowRadius": 5,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/search-outline.jpg",
+          }
+        }
+        style={
+          Object {
+            "height": 30,
+            "width": 30,
+          }
+        }
+      />
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "white",
+            "borderWidth": 1,
+            "fontSize": 25,
+            "height": "100%",
+            "padding": 0,
+            "width": "80%",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="mockMainText"
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/close-outline.jpg",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+            "paddingVertical": 5,
+          },
+          Object {
+            "height": AnimatedValue {
+              " __value": 1067.2,
+            },
+          },
+        ]
+      }
+    >
+      <RCTScrollView
+        data={
+          Array [
+            "mock1",
+            "mock2",
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        keyboardShouldPersistTaps="always"
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#f2f2f2",
+                  "borderBottomColor": "grey",
+                  "borderBottomWidth": 1,
+                  "opacity": 1,
+                  "padding": 15,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "grey",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                mock1
+              </Text>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#f2f2f2",
+                  "borderBottomColor": "grey",
+                  "borderBottomWidth": 1,
+                  "opacity": 1,
+                  "padding": 15,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "grey",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                mock2
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;

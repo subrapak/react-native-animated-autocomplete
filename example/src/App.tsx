@@ -6,7 +6,11 @@ import AnimatedAutocomplete from 'react-native-animated-autocomplete';
 export default function App() {
   return (
     <View style={styles.container}>
-      <AnimatedAutocomplete />
+      <AnimatedAutocomplete
+        data={Array.from(Array(50).keys()).map(
+          (item: number) => `Custom ${item}`
+        )}
+      />
     </View>
   );
 }

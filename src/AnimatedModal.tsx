@@ -21,8 +21,8 @@ import Animated, { Easing, Value } from 'react-native-reanimated';
 const { width, height } = Dimensions.get('window');
 
 type Props = {
-  translateY: Animated.Value<number>;
-  animatedHeight: Animated.Value<number>;
+  translateY: Value<number>;
+  animatedHeight: Value<number>;
   datalist: string[];
   autocompleteText: string;
   setAutocompleteText: Dispatch<React.SetStateAction<string>>;

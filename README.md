@@ -2,7 +2,7 @@
 
 A customisable animated modal based autocomplete
 
-<img src="example_usage.gif" width="40"/>
+<img src="example_usage.gif" width="200"/>
 
 ## Installation
 

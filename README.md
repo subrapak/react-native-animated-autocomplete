@@ -1,3 +1,5 @@
+# [WIP] - This package is a work in progress, not suitable to download at the moment
+
 # react-native-animated-autocomplete
 
 A customisable animated modal based autocomplete
@@ -45,15 +47,15 @@ export default function App() {
 
 ## Props
 
-| Prop (**required**)| Type                | Description                                                                  |
-| ------------------ | ------------------- | ---------------------------------------------------------------------------- |
-| **data**           | string[]            | The list of data to render in the autocomplete                               |
-| **value**          | string              | The current value in the autocomplete. A default value can be set using this |
-| **onSelectItem**   | (valstring) => void | The function to run when an item is selected                                 |
-| mainInputViewStyle | ViewStyle           | Styles to add for the input view                                             |
-| mainInputTextStyle | TextStyle           | Styles to add for the input text                                             |
-| closeIcon          | JSX.Element         | A custom icon for the close button                                           |
-| searchIcon         | JSX.Element         | A custom icon for the search icon                                            |
+| Prop (**required**) | Type                | Description                                                                  |
+| ------------------- | ------------------- | ---------------------------------------------------------------------------- |
+| **data**            | string[]            | The list of data to render in the autocomplete                               |
+| **value**           | string              | The current value in the autocomplete. A default value can be set using this |
+| **onSelectItem**    | (valstring) => void | The function to run when an item is selected                                 |
+| mainInputViewStyle  | ViewStyle           | Styles to add for the input view                                             |
+| mainInputTextStyle  | TextStyle           | Styles to add for the input text                                             |
+| closeIcon           | JSX.Element         | A custom icon for the close button                                           |
+| searchIcon          | JSX.Element         | A custom icon for the search icon                                            |
 
 ## Contributing
 

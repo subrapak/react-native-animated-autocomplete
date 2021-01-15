@@ -1,4 +1,4 @@
-import React, { createRef, FunctionComponent, useState } from 'react';
+import React, { createRef, FunctionComponent } from 'react';
 import {
   Dimensions,
   StyleSheet,
@@ -20,7 +20,8 @@ type Props = {
   mainInputViewStyle?: ViewStyle;
   mainInputTextStyle?: TextStyle;
   data: string[];
-  defaultText?: string;
+  value: string;
+  onSelectItem: (val: string) => void;
   closeIcon?: JSX.Element;
   searchIcon?: JSX.Element;
 };
@@ -29,16 +30,16 @@ export const AnimatedAutocomplete: FunctionComponent<Props> = ({
   mainInputViewStyle,
   mainInputTextStyle,
   data,
-  defaultText,
   closeIcon,
   searchIcon,
+  value,
+  onSelectItem,
 }: Props) => {
   const { height } = Dimensions.get('window');
 
   const modalHeight = new Value<number>(0);
   const modalTranslateY = new Value<number>(height);
   const mainTextOpacity = new Value<number>(1);
-  const [mainText, setMainText] = useState<string>(defaultText ?? '');
   const searchBarRef = createRef<TextInput>();
 
   const handleTapStateChange = (event: TapGestureHandlerGestureEvent) => {
@@ -80,15 +81,15 @@ export const AnimatedAutocomplete: FunctionComponent<Props> = ({
             { opacity: mainTextOpacity },
           ]}
         >
-          <Text style={[styles.mainText, mainInputTextStyle]}>{mainText}</Text>
+          <Text style={[styles.mainText, mainInputTextStyle]}>{value}</Text>
         </Animated.View>
       </TapGestureHandler>
       <AnimatedModal
         animatedHeight={modalHeight}
         translateY={modalTranslateY}
         datalist={data}
-        autocompleteText={mainText}
-        setAutocompleteText={setMainText}
+        autocompleteText={value}
+        setAutocompleteText={onSelectItem}
         closeIcon={closeIcon}
         searchIcon={searchIcon}
         searchRef={searchBarRef}

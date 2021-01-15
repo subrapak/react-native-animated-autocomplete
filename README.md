@@ -52,8 +52,8 @@ export default function App() {
 | **onSelectItem**   | (valstring) => void | The function to run when an item is selected                                 |
 | mainInputViewStyle | ViewStyle           | Styles to add for the input view                                             |
 | mainInputTextStyle | TextStyle           | Styles to add for the input text                                             |
-| closeIcon?         | JSX.Element         | A custom icon for the close button                                           |
-| searchIcon?        | JSX.Element         | A custom icon for the search icon                                            |
+| closeIcon          | JSX.Element         | A custom icon for the close button                                           |
+| searchIcon         | JSX.Element         | A custom icon for the search icon                                            |
 
 ## Contributing
 

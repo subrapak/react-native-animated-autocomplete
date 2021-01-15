@@ -1,5 +1,4 @@
 import React, {
-  Dispatch,
   FunctionComponent,
   RefObject,
   useEffect,
@@ -25,7 +24,7 @@ type Props = {
   animatedHeight: Value<number>;
   datalist: string[];
   autocompleteText: string;
-  setAutocompleteText: Dispatch<React.SetStateAction<string>>;
+  setAutocompleteText: (val: string) => void;
   closeIcon?: JSX.Element;
   searchIcon?: JSX.Element;
   searchRef: RefObject<TextInput>;

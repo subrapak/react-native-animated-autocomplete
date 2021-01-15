@@ -30,7 +30,7 @@ import AnimatedAutocomplete from 'react-native-animated-autocomplete';
 export default function App() {
   const [formvalue, setFormValue] = useState('default value');
   return (
-    <View style={styles.container}>
+    <View>
       <AnimatedAutocomplete
         data={Array.from(Array(50).keys()).map(
           (item: number) => `Custom ${item}`

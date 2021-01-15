@@ -45,7 +45,7 @@ export default function App() {
 
 ## Props
 
-| Prop               | Type                | Description                                                                  |
+| Prop (**required**)| Type                | Description                                                                  |
 | ------------------ | ------------------- | ---------------------------------------------------------------------------- |
 | **data**           | string[]            | The list of data to render in the autocomplete                               |
 | **value**          | string              | The current value in the autocomplete. A default value can be set using this |
